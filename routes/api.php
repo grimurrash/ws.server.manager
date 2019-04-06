@@ -13,6 +13,23 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+
+Route::post('/login','Auth\LoginController@login');
+Route::post('/register','Auth\RegisterController@register');
+
+Route::middleware('auth')->prefix('projects')->group(function (){
+    Route::get('/','ProjectController@index');
+    Route::middleware('auth:worker')->group(function (){
+
+    });
+    Route::middleware('auth:manager')->group(function (){
+        Route::post('/','ProjectController@store');
+    });
+    Route::get('/{project}/task','TaskController@index');
+    Route::post('/{project}/task','TaskController@store');
+    Route::get('/{project}','ProjectController@show');
+    Route::post('/{project}','ProjectController@update');
 });

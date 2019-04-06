@@ -2,10 +2,9 @@
 
 namespace App\Http\Middleware;
 
-use App\User;
 use Closure;
 
-class Auth
+class Worker
 {
     /**
      * Handle an incoming request.
@@ -16,12 +15,13 @@ class Auth
      */
     public function handle($request, Closure $next)
     {
-        $user = User::isAuth($request->bearerToken());
-        if(is_a($user,User::class)){
+        if (User::isAuth($request->bearerToken())->role == 'worker'){
             return $next($request);
         }else{
-            return $user;
+            return response()->json([
+                'status'=>false,
+                'message' =>'Недостаточно прав'
+            ])->setStatusCode(403,'Forbidden');
         }
-
     }
 }

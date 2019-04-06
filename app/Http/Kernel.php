@@ -2,6 +2,13 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\Auth;
+use App\Http\Middleware\CommentFound;
+use App\Http\Middleware\Manager;
+use App\Http\Middleware\ProjectFound;
+use App\Http\Middleware\TaskFound;
+use App\Http\Middleware\Worker;
+use App\Project;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -51,7 +58,12 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => \App\Http\Middleware\Authenticate::class,
+        'auth' => Auth::class,
+        'project'=>ProjectFound::class,
+        'task'=>TaskFound::class,
+        'auth:manager'=>Manager::class,
+        'auth:worker'=>Worker::class,
+        'comment'=>CommentFound::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
