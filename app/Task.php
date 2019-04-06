@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Task extends Model
 {
     protected $guarded  = [];
-    public function projects(){
+    public function project(){
         return $this->belongsTo(Project::class,'project_id');
     }
     public function worker(){

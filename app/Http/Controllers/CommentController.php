@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use App\Task;
+use App\User;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -13,9 +14,12 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request, Task $task)
     {
-        //
+        $user = User::isAuth($request->bearerToken());
+        if ($task->worker_id == $user->id || $task->project->){
+            return
+        }
     }
 
     /**
