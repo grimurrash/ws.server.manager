@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\Project;
 use App\Task;
 use App\User;
 use Illuminate\Http\Request;
@@ -14,11 +15,19 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, Task $task)
+    public function index(Request $request, Project $project, Task $task)
     {
         $user = User::isAuth($request->bearerToken());
-        if ($task->worker_id == $user->id || $task->project->){
-            return
+        if ($task->worker_id == $user->id || $task->project->manager_id == $user->id){
+            return response()->json([
+                'status'=>true,
+                'comments'=>$task->comments
+            ])->setStatusCode(200,'Comment List');
+        }else{
+            return response()->json([
+                'status'=>false,
+                'message'=>['permission'=>'Нет прав']
+            ])->setStatusCode(403,'Forbidden');
         }
     }
 
@@ -38,9 +47,17 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Task $task)
+    public function store(Request $request, Project $project, Task $task)
     {
+        $user = User::isAuth($request->bearerToken());
+        if ($task->worker_id == $user->id || $task->project->manager_id == $user->id){
 
+        }else{
+            return response()->json([
+                'status'=>false,
+                'message'=>['permission'=>'Нет прав']
+            ])->setStatusCode(403,'Forbidden');
+        }
     }
 
     /**

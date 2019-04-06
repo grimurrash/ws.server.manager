@@ -13,4 +13,7 @@ class Task extends Model
     public function worker(){
         return $this->belongsTo(User::class, 'worker_id');
     }
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
 }
