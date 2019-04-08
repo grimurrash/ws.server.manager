@@ -22,16 +22,14 @@ Route::post('/register','Auth\RegisterController@register');
 
 Route::middleware('auth')->prefix('projects')->group(function (){
     Route::get('/','ProjectController@index');
-    Route::middleware('auth:worker')->group(function (){
-
-    });
     Route::middleware('auth:manager')->group(function (){
         Route::post('/','ProjectController@store');
     });
     Route::get('/{project}','ProjectController@show');
-    Route::post('/{project}','ProjectController@update');
+
     Route::get('/{project}/task','TaskController@index');
     Route::post('/{project}/task','TaskController@store');
-    Route::get('/{project}/task/{task}/comment','CommentController@index');
-    Route::post('/{project}/task/{task}/comment','CommentController@store');
+    Route::post('/task/{task}','TaskController@show');
+    Route::get('/task/{task}/comment','CommentController@index');
+    Route::post('/task/{task}/comment','CommentController@store');
 });

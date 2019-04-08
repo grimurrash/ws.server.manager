@@ -20,7 +20,7 @@ class Worker
         }else{
             return response()->json([
                 'status'=>false,
-                'message' =>'Недостаточно прав'
+                'message' =>['permission'=>'Недостаточно прав']
             ])->setStatusCode(403,'Forbidden');
         }
     }

@@ -15,9 +15,11 @@ class ProjectResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'id'=>$this->id,
             'name'=>$this->name,
             'manager'=>$this->manager->login,
-            'task'=>TaskResource::collection($this->tasks),
+            'tasks'=>TaskResource::collection($this->tasks),
+            'date' => date('d.m.Y H:i',strtotime($this->created_at)),
             'workers'=> $this->workers()
         ];
     }

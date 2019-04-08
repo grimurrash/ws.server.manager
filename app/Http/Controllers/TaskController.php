@@ -82,7 +82,7 @@ class TaskController extends Controller
      * @param  \App\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function show(Task $task)
+    public function show( Task $task)
     {
         return response()->json([
             'status'=>true,
