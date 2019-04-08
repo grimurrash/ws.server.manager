@@ -30,6 +30,6 @@ Route::middleware('auth')->prefix('projects')->group(function (){
     Route::get('/{project}/task','TaskController@index');
     Route::post('/{project}/task','TaskController@store');
     Route::post('/task/{task}','TaskController@show');
-    Route::get('/task/{task}/comment','CommentController@index');
-    Route::post('/task/{task}/comment','CommentController@store');
+    Route::get('/task/{task}/comments','CommentController@index');
+    Route::post('/task/{task}/comments','CommentController@store');
 });

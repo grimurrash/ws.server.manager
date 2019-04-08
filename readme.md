@@ -5,28 +5,29 @@
 ## Авторизация.
 
 ```
-    method: post,
-    data: { 
-        login, 
-        password 
+url: {domain}/api/login
+method: post,
+data: { 
+    login, 
+    password 
+},
+result: {
+    successful(200): {
+        status: true,
+        token
     },
-    result: {
-        successful(200): {
-            status: true,
-            token
-        },
-        error(404): {
-            status: false,
-            message: []
-        }
+    error(404): {
+        status: false,
+        message: []
     }
+}
 ```
 ## Проекты
 
 - Получение списка проектов пользователя (manager, worker)
 
 ```
-    url: 
+    url: {domain}/api/projects
     method: get,
     token: required,
     result: {
@@ -44,7 +45,7 @@
 
 
 ```
-    url:
+    url:{domain}/api/projects
     method: post,
     data:{
         name,
@@ -67,7 +68,7 @@
 
 
 ```
-     url:
+     url:{domain}/api/projects/{project_id}
      method: get
      token: required
      result: {
@@ -95,7 +96,7 @@
 
 
 ```
-    url: 
+    url: {domain}/api/projects/{project_id}/task
     method: get,
     token: required,
     result: {
@@ -114,7 +115,7 @@
 
 
 ```
-    url:
+    url: {domain}/api/projects/{project_id}/task
     method: post,
     data:{
         text,
@@ -137,7 +138,7 @@
 
 
 ```
-    url:
+    url: {domain}/api/projects//task/{task_id}
     method: get
     token: required
     result: {
@@ -164,7 +165,7 @@
 
 
 ```
-    url: 
+    url: {domain}/api/projects//task/{task_id}/comments
     method: get,
     token: required,
     result: {
@@ -183,7 +184,7 @@
 
 
 ```
-    url:
+    url: {domain}/api/projects//task/{task_id}/comments
     method: post,
     data:{
         comment,
@@ -224,6 +225,6 @@
             auth: "Unauthorized"
         }
     }
-```    
-    
+```
+
 ##Все может сломатся, будут ошибки пишите в телеграмм!!!
