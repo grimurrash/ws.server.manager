@@ -26,10 +26,10 @@
 - Получение списка проектов пользователя (manager, worker)
 
 
-     url: 
-     method: get,
-     token: required,
-     result: {
+    url: 
+    method: get,
+    token: required,
+    result: {
         successful(200): {
             status: true,
             projects : []
@@ -44,14 +44,14 @@
 
 
 
-     url:
-     method: post,
-     data:{
+    url:
+    method: post,
+    data:{
         name,
         description
-     },
-     token: required,
-     result: {
+    },
+    token: required,
+    result: {
         successful(200): {
             status: true,
             id : project_id
@@ -95,10 +95,10 @@
 
 
 
-     url: 
-     method: get,
-     token: required,
-     result: {
+    url: 
+    method: get,
+    token: required,
+    result: {
         successful(200): {
             status: true,
             tasks : []
@@ -114,14 +114,14 @@
 
 
 
-     url:
-     method: post,
-     data:{
+    url:
+    method: post,
+    data:{
         text,
         worker_id
-     },
-     token: required,
-     result: {
+    },
+    token: required,
+    result: {
         successful(200): {
             status: true,
             id : task_id
@@ -137,10 +137,10 @@
 
 
 
-     url:
-     method: get
-     token: required
-     result: {
+    url:
+    method: get
+    token: required
+    result: {
         successful(200): {
             status: true,
             task : {
@@ -164,10 +164,10 @@
 
 
 
-     url: 
-     method: get,
-     token: required,
-     result: {
+    url: 
+    method: get,
+    token: required,
+    result: {
         successful(200): {
             status: true,
             comments : []
@@ -183,13 +183,13 @@
 
 
 
-     url:
-     method: post,
-     data:{
+    url:
+    method: post,
+    data:{
         comment,
-     },
-     token: required,
-     result: {
+    },
+    token: required,
+    result: {
         successful(200): {
             status: true,
         },
