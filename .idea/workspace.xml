@@ -23,13 +23,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="md" value="1274" />
+          <entry key="md" value="1281" />
           <entry key="php" value="494" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Markdown" value="1274" />
+          <entry key="Markdown" value="1281" />
           <entry key="PHP" value="494" />
         </counts>
       </usages-collector>
@@ -506,12 +506,12 @@
       <option name="presentableId" value="Default" />
       <updated>1554533365085</updated>
       <workItem from="1554533366496" duration="13081000" />
-      <workItem from="1554720219787" duration="2963000" />
+      <workItem from="1554720219787" duration="3113000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16044000" />
+    <option name="totallyTimeSpent" value="16194000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
